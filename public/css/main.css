@@ -1,0 +1,97 @@
+
+
+#png {
+    margin: 0 7px 0 4px;
+}
+
+.navbar {
+    background: #5a966e !important;
+    color: black;
+    font-size: medium;
+    font-weight: bold;
+    font-size: medium;
+
+}
+
+/* Apply hover styles to all buttons */
+button:hover {
+    /* Add your hover styles here */
+    background-color: #53745a !important;
+    /* Example color change on hover */
+    color: #fff;
+    /* Example text color change on hover */
+}
+
+.navItem:hover {
+    background-color: #53745a !important;
+    border-radius: 5px;
+}
+
+.editDelete {
+    float: right;
+    margin: 3px;
+    padding: 3px 10px;
+}
+
+/* button .nav-item{
+    font-weight: bold;
+    font-size: medium;
+
+} */
+
+/* button {
+    float: right;
+} */
+
+/* .container {
+    margin-top: 50px;
+} */
+
+/* label {
+    font-weight: bold;
+} */
+
+/* input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    /* margin-bottom: 10px;
+ } */
+
+/*
+button {
+    padding: 10px 20px;
+    background-color: #4f735c;
+    ;
+    color: #ebe6e6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    /* align-items: end;} */
+
+
+
+/* .listOfItems {
+    display: grid;
+} */
+
+/* .listOfItems ul li {
+    padding-bottom: 10px;
+} */
+
+/* .col-md-2 button{ 
+    padding-top: 5px;
+} */
+/* .liStyle{
+    display : inline ;
+
+} */
+
+/* .trStyle {
+    text-align: center;
+    display: flex;
+
+    justify-content: space-between;
+} */
