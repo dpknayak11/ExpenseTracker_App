@@ -1,3 +1,4 @@
+const https = require('https')
 require('dotenv').config()
 const express = require('express');
 const path = require('path')
@@ -12,7 +13,7 @@ const expenseRoutes = require('./routes/expenseRoutes')
 const premiumRoutes = require('./routes/premuimeRoutes')
 const resetPasswordRoutes = require('./routes/resetPasswordRoutes')
 
-const sequelize = require('./connections/database');
+const sequelizeDB = require('./connections/database');
 const Expense = require('./models/expenseModel');
 const User = require('./models/userModel')
 const Order = require('./models/ordersModel')
@@ -51,11 +52,16 @@ ResetPassword.belongsTo(User);
 User.hasMany(ResetPassword);
 
 const port = process.env.PORT;
-app.listen(port || 3000, () => {
-    console.log(`Server running on port `);
-    sequelize
-        .sync()
-        // .sync({force: true})
-        .then(() => { console.log('Database synced') })
-        .catch((err) => { console.log(err) });
-});
+
+const key = fs.readFileSync(path.join(__dirname, 'server.key'))
+const certificate = fs.readFileSync(path.join(__dirname, 'server.cert'))
+
+sequelizeDB
+.sync()
+// .sync({force: true})
+.then(() => { 
+    https.
+    createServer({ key: key, cert: certificate}, app)
+    .listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
+ })
+.catch((err) => { console.log(err) });

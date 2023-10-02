@@ -5,7 +5,7 @@ const expenseController = require('../controllers/expenseController');
 const authenticate = require('../middleware/auth.js');
 
 router.get('/get-expense', expenseController.getHomePage);
-// router.get('/get-expense-data',authenticate,expenseController.getExpenseData);
+// router.get('/editExpense/:id',authenticate,expenseController.editExpense);
 router.get("/getAllExpenses/:page", authenticate, expenseController.getAllExpensesforPagination);
 router.post('/post-expense', authenticate, expenseController.postExpense);
 

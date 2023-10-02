@@ -142,7 +142,8 @@ function deleteFunction(e, expensesId) {
     alert(`delete id : ${expensesId}`)
     const token = localStorage.getItem('accessToken');
     axios.post('/delete-expense', deletedObj, { headers: { "Authorization": token } })
-    window.location.reload();
+    // window.location.reload();
+    getAllExpenses(currentPage);
 }
 
 // payment method..............
