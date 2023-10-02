@@ -2,4 +2,6 @@ node_modules/*
 .vscode
 .env
 access.log
-expenseApp
+expenseApp.pem
+# server.cert
+# server.key
