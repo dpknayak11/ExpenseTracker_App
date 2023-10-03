@@ -41,6 +41,9 @@ app.use(expenseRoutes);
 app.use(premiumRoutes);
 app.use(resetPasswordRoutes)
 // app.use(routes);
+app.get('/test',(req,res,next) => {
+    res.send("test is done you are connected!")
+})
 
 User.hasMany(Expense);
 Expense.belongsTo(User);
