@@ -65,6 +65,6 @@ sequelizeDB
 .then(() => { 
     https.
     createServer({ key: key, cert: certificate}, app)
-    .listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
+   .listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
  })
 .catch((err) => { console.log(err) });
