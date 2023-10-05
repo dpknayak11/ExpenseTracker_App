@@ -63,7 +63,7 @@ sequelizeDB
 .sync()
 // .sync({force: true})
 .then(() => { 
-    https.
+    // https.
     // createServer({ key: key, cert: certificate}, app)
    app.listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
  })
