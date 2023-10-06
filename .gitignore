@@ -3,5 +3,5 @@ node_modules/*
 .env
 access.log
 expenseApp.pem
-# server.cert
-# server.key
+server.cert
+server.key
