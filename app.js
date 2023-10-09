@@ -1,4 +1,4 @@
-const http = require('http')
+const https = require('https')
 require('dotenv').config()
 const express = require('express');
 const path = require('path')
@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors');
 const fs = require("fs");
 const compression=require('compression');
-// const helmet = require('helmet');
+// const helmet = require('helmet')
 
 const userRoutes = require('./routes/userRoute')
 const expenseRoutes = require('./routes/expenseRoutes')
@@ -56,15 +56,15 @@ User.hasMany(ResetPassword);
 
 const port = process.env.PORT;
 
-const key = fs.readFileSync(path.join(__dirname, 'server.key'))
-const certificate = fs.readFileSync(path.join(__dirname, 'server.cert'))
+// const key = fs.readFileSync(path.join(__dirname, 'server.key'))
+// const certificate = fs.readFileSync(path.join(__dirname, 'server.cert'))
 
 sequelizeDB
 .sync()
 // .sync({force: true})
 .then(() => { 
-    http
-    createServer({ key: key, cert: certificate}, app)
-   .listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
+    // https.
+    // createServer({ key: key, cert: certificate}, app)
+   app.listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
  })
 .catch((err) => { console.log(err) });
