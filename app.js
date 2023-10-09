@@ -1,4 +1,4 @@
-const https = require('https')
+const http = require('http')
 require('dotenv').config()
 const express = require('express');
 const path = require('path')
@@ -56,15 +56,15 @@ User.hasMany(ResetPassword);
 
 const port = process.env.PORT;
 
-// const key = fs.readFileSync(path.join(__dirname, 'server.key'))
-// const certificate = fs.readFileSync(path.join(__dirname, 'server.cert'))
+const key = fs.readFileSync(path.join(__dirname, 'server.key'))
+const certificate = fs.readFileSync(path.join(__dirname, 'server.cert'))
 
 sequelizeDB
 .sync()
 // .sync({force: true})
 .then(() => { 
-    // https.
-    // createServer({ key: key, cert: certificate}, app)
-   app.listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
+    http
+    createServer({ key: key, cert: certificate}, app)
+   .listen(port || 3000 , ()=> console.log(`Listening on ${port}`));
  })
 .catch((err) => { console.log(err) });
