@@ -7,7 +7,7 @@ const getUserLogIn = (req, res, next) => {
     res.sendFile(path.join(__dirname, '../', 'views', 'index.html'));
 }
 function generateAccessToken(id, name, ispremiumuser) {
-    return jwt.sign({ userId: id, name: name, ispremiumuser },process.env.TOKEN_SECRET);
+    return jwt.sign({ userId: id, name: name, ispremiumuser }, process.env.TOKEN_SECRET);
 }
 // const isPremiumUser = async (req, res, next) => {
 //     const user = req.user.isPremiumUser
@@ -43,7 +43,10 @@ const postUserSingUp = async (req, res) => {
     try {
         const { name, email, password } = req.body;
         const user = await User.findOne({ where: { email: email } });
-        if (user) { return res.status(404).json({ message: "This Email-Id User already exists!" }) }
+        if (user) {
+            return res.status(404).send(`<script>alert('This Email-Id User already exists!'); window.location.href='/'</script>`);
+        }
+
         else {
             bcrypt.hash(password, 10, async (err, hashPswd) => {
                 if (err) { return res.status(500).json({ message: "something went wrong" }) }

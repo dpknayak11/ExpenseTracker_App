@@ -20,8 +20,9 @@ exports.sendEmail = async (req, res, next) => {
         if (user) {
             let obj = await ForgotpasswordRequest.create({ id: requestId, isactive: true, userId: user.id });
         }
-        else { return res.status(500).json({ message: "No account registered with this mail id", sucess: false }) }
-
+        else {
+            return res.status(500).send(`<script>alert('No Account Registered With This Mail id'); window.location.href='/'</script>`);
+        }
         const transporter = await nodemailer.createTransport({
             host: 'smtp.ethereal.email',
             port: 587,
@@ -80,6 +81,6 @@ exports.updatePassword = async (req, res, next) => {
                 return res.status(200).send(`<script>alert('Password changed successfully'); window.location.href='/'</script>`);
             });
         }
-        else {  res.status(501).json({ message: "something is wrong" });  }
+        else { res.status(501).json({ message: "something is wrong" }); }
     } catch (err) { console.log(err) }
 }
