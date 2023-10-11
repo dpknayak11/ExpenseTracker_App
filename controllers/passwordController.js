@@ -21,7 +21,7 @@ exports.sendEmail = async (req, res, next) => {
             let obj = await ForgotpasswordRequest.create({ id: requestId, isactive: true, userId: user.id });
         }
         else {
-            return res.status(500).send(`<script>alert('No Account Registered With This Mail id'); window.location.href='/'</script>`);
+            return res.status(500).send(`<script>alert('No Account Registered With This Mail id'); window.location.href='/passwordForgotPage'</script>`);
         }
         const transporter = await nodemailer.createTransport({
             host: 'smtp.ethereal.email',
@@ -43,7 +43,7 @@ exports.sendEmail = async (req, res, next) => {
         transporter.sendMail(mailoptions, function (error) {
             if (error) { res.status(500).json({ message: "can not send email", success: false }); }
             else {
-                return res.status(200).send(`<script>alert('email sent successfully check your Gmail'); window.location.href='/'</script>`);
+                return res.status(200).send(`<script>alert('Send Email successfully check your Gmail'); window.location.href='/'</script>`);
             }
         });
     }
